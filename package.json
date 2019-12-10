@@ -1,0 +1,39 @@
+{
+  "name": "cesium_rapid_util",
+  "version": "1.0.0",
+  "description": "cesium工具类",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha -r node_modules/ts-node/register tests/**/*.spec.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhj296409022/cesium_util.git"
+  },
+  "keywords": [
+    "cesium",
+    "util"
+  ],
+  "author": "zhj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhj296409022/cesium_util/issues"
+  },
+  "homepage": "https://github.com/zhj296409022/cesium_util#readme",
+  "devDependencies": {
+    "@types/cesium": "^1.59.3",
+    "@types/chai": "^4.2.6",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.12.16",
+    "@types/webpack": "^4.41.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3",
+    "webpack": "^4.41.2",
+    "webpack-chain": "^6.0.0"
+  },
+  "dependencies": {
+    "cesium": "^1.64.0"
+  }
+}
