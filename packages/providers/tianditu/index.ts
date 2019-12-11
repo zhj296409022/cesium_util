@@ -25,7 +25,7 @@ export class TiandituProvider extends TileMapServiceProvider {
             option.url = option.url.replace('{key}', opts.tKey)
 
             if(opts.hostSign) {
-                option.url += `&host=${window.location.host}`
+                option.url += `&host=${encodeURIComponent(window.location.host)}`
             }
             
             return option

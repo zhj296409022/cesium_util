@@ -27,7 +27,7 @@ var TileMapServiceProvider = /** @class */ (function (_super) {
     }
     Object.defineProperty(TileMapServiceProvider.prototype, "providers", {
         get: function () {
-            return this.options.map(function (option) { return new cesium_1.TileMapServiceImageryProvider(option); });
+            return this.options.map(function (option) { return new cesium_1.WebMapTileServiceImageryProvider(option); });
         },
         enumerable: true,
         configurable: true

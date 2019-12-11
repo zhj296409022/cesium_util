@@ -32,7 +32,7 @@ var TiandituProvider = /** @class */ (function (_super) {
         _this._options.forEach(function (option) {
             option.url = option.url.replace('{key}', opts.tKey);
             if (opts.hostSign) {
-                option.url += "&host=" + window.location.host;
+                option.url += "&host=" + encodeURIComponent(window.location.host);
             }
             return option;
         });

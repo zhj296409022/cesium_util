@@ -2,7 +2,7 @@ import { MapType, TileMapConfigMap } from '../types'
 
 export const Config: TileMapConfigMap = {
     [MapType.Image]: {
-        url: 'https://t{s}.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE={style}&TILEMATRIXSET={TileMatrixSet}&FORMAT=tiles&TILEMATRIX={TileMatrix}&TILEROW={TileRow}&TILECOL={TileCol}&tk=${key}',
+        url: 'https://t{s}.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE={style}&TILEMATRIXSET={TileMatrixSet}&FORMAT=tiles&TILEMATRIX={TileMatrix}&TILEROW={TileRow}&TILECOL={TileCol}&tk={key}',
         format: 'tiles',
         layer: 'img',
         style: 'default',

@@ -1,6 +1,6 @@
 {
   "name": "cesium-rapid-util",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "cesium工具类",
   "main": "index.js",
   "scripts": {
