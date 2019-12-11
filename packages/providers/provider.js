@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Provider = /** @class */ (function () {
     function Provider() {
+        this._options = [];
     }
     Object.defineProperty(Provider.prototype, "options", {
         get: function () {
@@ -10,8 +11,6 @@ var Provider = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    Provider.prototype.change = function () {
-    };
     return Provider;
 }());
 exports.Provider = Provider;

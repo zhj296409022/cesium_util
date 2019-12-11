@@ -1,6 +1,6 @@
 {
   "name": "cesium-rapid-util",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "cesium工具类",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,7 @@
     "webpack-chain": "^6.0.0"
   },
   "dependencies": {
-    "cesium": "^1.64.0"
+    "cesium": "^1.64.0",
+    "vue-tsx-support": "^2.3.2"
   }
 }

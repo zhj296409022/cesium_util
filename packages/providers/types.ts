@@ -16,6 +16,10 @@ export enum ProviderOption {
     OnlyTopo=8
 }
 
+export enum ProviderType {
+    Tianditu='Tianditu',
+}
+
 export interface MapConfigMap {
     [MapType.Image]: any
     [MapType.ImageMark]: any
@@ -26,10 +30,10 @@ export interface MapConfigMap {
 
 export interface TileMapConfig {
     url: string
-    format?: string
-    layer?: string
-    style?: string
-    tileMatrixSetID?: string
+    format: string
+    layer: string
+    style: string
+    tileMatrixSetID: string
     subdomains?: string
     maximumLevel?: number
     minimumLevel?: number

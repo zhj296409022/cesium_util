@@ -1,12 +1,9 @@
 {
     "compilerOptions": {
+        "strict": true,
         "module": "CommonJS",
         "target": "ES5",
         "lib": ["DOM", "ESNext"],
-        "baseUrl": "./",
-        "paths": {
-            "packages/*":["packages/*"]
-        }
     },
     "exclude": ["node_modules", "examples", "dist", "build"]
 }

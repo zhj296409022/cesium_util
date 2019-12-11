@@ -23,6 +23,4 @@ const container = document.createElement('div')
 document.body.appendChild(container)
 
 const viewer = new Viewer(container)
-
-provider.add(viewer)
 ```

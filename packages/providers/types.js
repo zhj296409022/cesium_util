@@ -19,3 +19,7 @@ var ProviderOption;
     ProviderOption[ProviderOption["OnlyImage"] = 1] = "OnlyImage";
     ProviderOption[ProviderOption["OnlyTopo"] = 8] = "OnlyTopo";
 })(ProviderOption = exports.ProviderOption || (exports.ProviderOption = {}));
+var ProviderType;
+(function (ProviderType) {
+    ProviderType["Tianditu"] = "Tianditu";
+})(ProviderType = exports.ProviderType || (exports.ProviderType = {}));

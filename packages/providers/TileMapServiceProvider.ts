@@ -1,33 +1,23 @@
 import { Provider } from "./provider"
-import { TileMapServiceImageryProvider, Viewer } from "cesium"
+import { WebMapTileServiceImageryProvider } from "cesium"
 import { ProviderOption, MapType, TileMapConfigMap, TileMapConfig } from "./types"
 
 export class TileMapServiceProvider extends Provider<TileMapConfig> {
+    config: TileMapConfigMap
+    type: ProviderOption = ProviderOption.Image
     constructor(opts: { type: ProviderOption, config: TileMapConfigMap }) {
         super()
 
-        this._options = getOptions(opts.type, opts.config)
+        this.config = opts.config
+        this.change(opts.type)
     }
-    protected _imageryProviders: TileMapServiceImageryProvider[]
     get providers() {
-        if(this._imageryProviders.length === 0) {
-            this.options.forEach(option=> {
-                this._imageryProviders.push(
-                    new TileMapServiceImageryProvider(option)
-                )
-            })
-        }
-
-        return this._imageryProviders
+        return this.options.map(option=>new WebMapTileServiceImageryProvider(option))
     }
-    /**
-     * 添加到最顶层
-     * @param viewer 
-     */
-    add(viewer: Viewer) {
-        this.providers.forEach(provider=> {
-            viewer.imageryLayers.addImageryProvider(provider)
-        })
+    change(type: ProviderOption) {
+        this._options = getOptions(type, this.config)
+
+        this.type = type
     }
 }
 

@@ -20,30 +20,21 @@ var TileMapServiceProvider = /** @class */ (function (_super) {
     __extends(TileMapServiceProvider, _super);
     function TileMapServiceProvider(opts) {
         var _this = _super.call(this) || this;
-        _this._options = getOptions(opts.type, opts.config);
+        _this.type = types_1.ProviderOption.Image;
+        _this.config = opts.config;
+        _this.change(opts.type);
         return _this;
     }
     Object.defineProperty(TileMapServiceProvider.prototype, "providers", {
         get: function () {
-            var _this = this;
-            if (this._imageryProviders.length === 0) {
-                this.options.forEach(function (option) {
-                    _this._imageryProviders.push(new cesium_1.TileMapServiceImageryProvider(option));
-                });
-            }
-            return this._imageryProviders;
+            return this.options.map(function (option) { return new cesium_1.TileMapServiceImageryProvider(option); });
         },
         enumerable: true,
         configurable: true
     });
-    /**
-     * 添加到最顶层
-     * @param viewer
-     */
-    TileMapServiceProvider.prototype.add = function (viewer) {
-        this.providers.forEach(function (provider) {
-            viewer.imageryLayers.addImageryProvider(provider);
-        });
+    TileMapServiceProvider.prototype.change = function (type) {
+        this._options = getOptions(type, this.config);
+        this.type = type;
     };
     return TileMapServiceProvider;
 }(provider_1.Provider));
