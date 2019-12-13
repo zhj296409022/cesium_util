@@ -1,4 +1,5 @@
 import { calcDistanceFromCartographic } from '../../packages/util/Distance'
+import { calcAreaFromCartographic } from '../../packages/util/Area'
 import { Cartographic, Ellipsoid } from 'cesium'
 import chai = require('chai')
 
