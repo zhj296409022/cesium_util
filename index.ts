@@ -1,3 +1,5 @@
 export { TiandituProvider } from './packages/providers/tianditu'
 export { removeControls, createViewer } from './packages/viewer/removeControl'
 export { CesiumContext } from './packages/viewer/index'
+export { calcDistanceFromCartesian3, calcDistanceFromCartographic } from './packages/util/Distance'
+export { calcConvexPolygonArea, calcTriangleArea } from './packages/util/Area'

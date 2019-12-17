@@ -1,46 +1,35 @@
-import { Cartesian3, Cartographic, Ellipsoid } from "cesium"
+import { Cartographic, Ellipsoid } from "cesium"
 import { calcDistanceFromCartographic } from "./Distance"
+
 /**
- * 计算三角形面积
- * @param p1 
- * @param p2 
- * @param p3 
- * @param ellipsoid 
+ * 凸多边形面积计算
+ * @param points 
  */
-export function calcTriangleArea(p1: Cartographic, p2: Cartographic, p3: Cartographic, ellipsoid: Ellipsoid) {
-    const l1 = calcDistanceFromCartographic(p1, p2, ellipsoid)
-
-    const l2 = calcDistanceFromCartographic(p2, p3, ellipsoid)
-
-    const l3 = calcDistanceFromCartographic(p3, p1, ellipsoid)
-
-    const half = (l1 + l2 + l3) / 2
-
-    return Math.sqrt(half * (half - l1)* (half - l2) * (half - l3))
-}
-/**
- * 拆分三角形
- * 利用三边求面积
- * @param positions 
- */
-export function calcAreaFromCartesian(positions: Cartesian3[], ellipsoid: Ellipsoid) {
-    if(positions.length < 3) {
-        return 0
-    }
-
-    return calcAreaFromCartographic(positions.map(item=> ellipsoid.cartesianToCartographic(item)), ellipsoid)
-}
-
-export function calcAreaFromCartographic(positions: Cartographic[], ellipsoid: Ellipsoid) {
-    if(positions.length < 3) {
-        return 0
-    }
-
+export function calcConvexPolygonArea(points: Cartographic[], ellipsoid: Ellipsoid) {
     let area = 0
 
-    for(let index = 2;index < positions.length; index++) {
-        area += calcTriangleArea(positions[index-2], positions[index-1], positions[index], ellipsoid)
+    for(let i = 2; i < points.length; i++) {
+        let p1 = points[i]
+        let p2 = points[i - 1]
+        let p3 = points[i - 2]
+
+        let l1 = calcDistanceFromCartographic(p1, p2, ellipsoid)
+        let l2 = calcDistanceFromCartographic(p2, p3, ellipsoid)
+        let l3 = calcDistanceFromCartographic(p1, p3, ellipsoid)
+
+        area += calcTriangleArea(l1, l2, l3)
     }
 
     return area
+}
+/**
+ * 三边求面积
+ * @param l1 
+ * @param l2 
+ * @param l3 
+ */
+export function calcTriangleArea(l1: number, l2: number, l3: number) {
+    const l = (l1 + l2 + l3) / 2
+
+    return Math.sqrt(l * (l-l1) * (l - l2) * (l - l3))
 }
